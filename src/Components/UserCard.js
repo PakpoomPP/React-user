@@ -3,8 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
+import {Link} from "react-router-dom";
 
-const UserCard = ({name,age,position,onClickRemove}) => {
+const UserCard = ({id,name,age,position,onClickRemove}) => {
     // const [name,age,position] = user;
     return (
         <Card variant="outlined" className="card-userList" >
@@ -19,7 +20,9 @@ const UserCard = ({name,age,position,onClickRemove}) => {
                     Position: {position}
                 </Typography>
                 <Button variant="contained" color="error" onClick={onClickRemove}>Delete</Button>
-
+                <Link to={`/EditUser/${id}`} >
+                    <Button variant="contained" color="warning">Edit</Button>
+                </Link>
             </CardContent>
         </Card>
     )
